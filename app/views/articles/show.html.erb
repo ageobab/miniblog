@@ -4,7 +4,7 @@
 </div>
 
 <p>
-Reviews: <%= rating_for(@article) %>
+Reviews: <%= star_jones(@article.reviews.average_rating) %>
 </p>
 
 <dl class="dl-horizontal">
@@ -19,6 +19,31 @@ Reviews: <%= rating_for(@article) %>
   <dt><strong><%= model_class.human_attribute_name(:image) %>:</strong></dt>
   <dd><%= @article.image %></dd>
 </dl>
+
+<% @article.comments.each do |comment| %>
+<%next if comment.created_at.nil? %>
+  <div class="comment">
+    <%= comment.comment %> - <em><%= time_ago_in_words(comment.created_at) %> ago</em>
+  </div>
+<% end %>
+  
+
+
+
+
+
+<div class= "comment-form-box-thing">
+  <%= form_for([@article, @comment]) do |f| %>
+  <p>
+    <%= f.label(:comment) %>
+    <%= f.text_area(:comment) %>
+  </p>
+  <p>
+    <%= f.submit("Whine and complain", class: "btn btn-lgbtn-success") %>
+  </p>
+  <% end %>
+</div>
+
 
 <div class="form-actions">
   <%= link_to t('.back', :default => t("helpers.links.back")),

@@ -1,7 +1,9 @@
 Miniblog::Application.routes.draw do
   get "search/results"
   get "static/about"
-  resources :articles, only: [:index, :show]
+  resources :articles, only: [:index, :show] do
+    resources :comments
+  end
 
 
 
