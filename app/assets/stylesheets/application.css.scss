@@ -3,39 +3,46 @@
  *= require_self
  */
 
-$orange: #ffaa00;
-$purple: #B01CD4;
-
-@mixin fire-effect($color) {
-  color:white;
-  text-shadow:0 0 20px lighten($color, 25%), 10px -10px 30px lighten($color, 10%),
-              -20px -20px 40px $color, 20px -40px 50px darken($color, 10%),
-              -20px -60px 60px darken($color, 15%), 0 -80px 70px darken($color, 20%),
-              10px -90px 80px darken($color, 25%);
+.jumbotron {
+  color: #FA8072;
+  text-shadow: -2px 5px 5px grey;
 }
 
+body {
+  font-family:"Didot";
+  background-color:AliceBlue;
+  color:#778899;
+  font-size: 18px;
+}
 
 .page-header {
-  background-color: black;
+  background-color: AliceBlue;
   padding: 10px;
   h1 {
-    @include fire-effect($purple);
-    font-weight: bold;
-    text-transform: uppercase;
-    font-family: "Courier";
+    color: #778899;
+    font-weight: lighter;
+    font-family: "Didot";
+    text-shadow: -2px 5px 5px grey;
     
   }
 }
 
+img {
+     margin: 5px;
+     padding: 10px;
+     
+}
+
 
 .paging {
-  font-size: 14px;
+  font-size: 20px;
   a {
-    color: $orange;
+    color:#FA8072;
     &:hover {
       text-decoration: none;
-      color: darken($orange, 10%);
 
     }
   }
 }
+
+
